@@ -143,12 +143,12 @@ void ResEtudiant(Etudiant classe[],int n,char nom[]){
 
 		}
 
-	}while((i!=n-1)||(strcmp(classe[i].nom,nom)==0));
+	}while((i!=n-1)&&(strcmp(classe[i].nom,nom)!=0));
 
 	if(i==n-1)
 		printf("Etudiant n'est existe pas");
-		}
 
+		}
 }
 
 int menu() {
