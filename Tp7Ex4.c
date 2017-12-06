@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 typedef struct {
 	char nom[21];
 	float ds;
@@ -126,23 +127,25 @@ void ResEtudiant(Etudiant classe[],int n,char nom[]){
 			printf("\nsaisir les etudiant");
 		else{
 	do{i++;
-		if(classe[i].nom==nom){
+
+		if(strcmp(classe[i].nom,nom)==0){
 			printf("\nNom:%s",classe[i].nom);
-					printf("\nNom:%f",classe[i].Moy);
+					printf("\nMoy%f",classe[i].Moy);
 					printf("\nObservation :");
 					if(classe[i].Moy<10)
-						printf("Faible");
-					else if((classe[i].Moy>10)&&(classe[i].Moy<12))
-						printf("Passable");
-					else if((classe[i].Moy>12)&&(classe[i].Moy<14))
-						printf("Bien");
-					else
-						printf("Trés bien");
+								printf(" Faible");
+							else if((classe[i].Moy>=10)&&(classe[i].Moy<12))
+								printf(" Passable");
+							else if((classe[i].Moy>=12)&&(classe[i].Moy<14))
+								printf(" Bien");
+							else if(classe[i].Moy>=14)
+								printf(" Trés bien");
 
 		}
 
-	}while((i!=n)&&(classe[i].nom==nom));
-	if(i==n)
+	}while((i!=n-1)||(strcmp(classe[i].nom,nom)==0));
+
+	if(i==n-1)
 		printf("Etudiant n'est existe pas");
 		}
 
